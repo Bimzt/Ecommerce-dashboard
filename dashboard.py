@@ -34,6 +34,9 @@ def load_data():
     file_id = '1gIJh5Kjr_jBu1dmpVeGzs6y6lt_OsM-g'
     url = f'https://drive.google.com/uc?id={file_id}'
     df = pd.read_csv(url)
+    df['order_purchase_timestamp'] = pd.to_datetime(df['order_purchase_timestamp'])
+    df['order_delivered_customer_date'] = pd.to_datetime(df['order_delivered_customer_date'])
+    df['order_estimated_delivery_date'] = pd.to_datetime(df['order_estimated_delivery_date'])
     return df
 try:
     all_df = load_data()
