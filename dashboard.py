@@ -31,19 +31,15 @@ st.markdown(
 
 @st.cache_data
 def load_data():
-    try:
-        main_df = pd.read_csv("main_data.csv")
-        main_df['order_purchase_timestamp'] = pd.to_datetime(main_df['order_purchase_timestamp'])
-        main_df['order_delivered_customer_date'] = pd.to_datetime(main_df['order_delivered_customer_date'])
-        main_df['order_estimated_delivery_date'] = pd.to_datetime(main_df['order_estimated_delivery_date'])
-        return main_df
-    except FileNotFoundError:
-        try:
-            return pd.read_csv(os.path.join(os.path.dirname(__file__), "main_data.csv"))
-        except:
-            return None
-
-all_df = load_data()
+    file_id = '1gIJh5Kjr_jBu1dmpVeGzs6y6lt_OsM-g'
+    url = f'https://drive.google.com/uc?id={file_id}'
+    df = pd.read_csv(url)
+    return df
+try:
+    df = load_data()
+    st.success("Data berhasil dimuat!")
+except Exception as e:
+    st.error(f"Gagal memuat data: {e}")
 
 if all_df is not None:
     with st.sidebar:
