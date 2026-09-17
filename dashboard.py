@@ -36,9 +36,10 @@ def load_data():
     df = pd.read_csv(url)
     return df
 try:
-    df = load_data()
+    all_df = load_data()
     st.success("Data berhasil dimuat!")
 except Exception as e:
+    all_df = None
     st.error(f"Gagal memuat data: {e}")
 
 if all_df is not None:
