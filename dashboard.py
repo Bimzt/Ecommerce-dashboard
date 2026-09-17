@@ -50,7 +50,7 @@ if all_df is not None:
         st.markdown(
             """
             <div class="logo-container">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Streamlit-logo-primary-colormark-darktext.png/250px-Streamlit-logo-primary-colormark-darktext.png" width="150">
+                <img src="https://streamlit.io/images/brand/streamlit-mark-color.png" width="150">
             </div>
             """, 
             unsafe_allow_html=True
